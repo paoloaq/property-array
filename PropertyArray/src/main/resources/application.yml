@@ -3,4 +3,4 @@ this:
     array: 
       - "casa"
       - "pesenna"
-      
+    intero: 5
