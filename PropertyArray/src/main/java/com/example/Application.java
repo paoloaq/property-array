@@ -1,9 +1,7 @@
 package com.example;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -22,11 +20,15 @@ public class Application {
 @ConfigurationProperties(prefix="this.is")
 class WithValueAnnotation {
 
-	private List<String> array = new ArrayList<>();
+	private List<String> array;
 	private int intero;
 	
 	public List<String> getArray(){
 		return this.array;
+	}
+	
+	public void setArray(List<String> array){
+		this.array = array;
 	}
 	
 	public int getIntero() {
@@ -37,7 +39,7 @@ class WithValueAnnotation {
 		this.intero = intero;
 	}
 	
-	@RequestMapping(value = "/with_value_annotation", method = { RequestMethod.GET,
+	@RequestMapping(value = "/test_cfg", method = { RequestMethod.GET,
 			RequestMethod.POST }, produces = "application/json")
 	public String test() {
 
